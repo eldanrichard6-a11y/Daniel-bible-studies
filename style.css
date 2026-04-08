@@ -1,0 +1,297 @@
+:root {
+    --gold: #dfb26c;
+    --dark: #0a0b0d;
+    --light-bg: #f5f4ef;
+    --white: #ffffff;
+    --text-grey: #444;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--light-bg);
+    color: var(--text-grey);
+    line-height: 1.8;
+    overflow-x: hidden;
+    scroll-behavior: smooth; /* Smooth Scrolling */
+}
+
+/* Typography Enhancements */
+h1, h2, h3, blockquote {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+}
+
+/* Sticky Navigation */
+.sticky-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background: rgba(10, 11, 13, 0.9);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    transition: all 0.3s;
+}
+
+.logo {
+    color: var(--gold);
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover { color: var(--gold); }
+
+/* --- 1. Full Screen Hero Section --- */
+.parallax-header {
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Parallax effect */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-overlay {
+    background: rgba(0, 0, 0, 0.5); /* Dimming overlay */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.hero-content { max-width: 900px; }
+
+.welcome {
+    display: block;
+    color: var(--gold);
+    letter-spacing: 5px;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.hero-content h1 {
+    font-size: 5rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    text-shadow: 0 0 10px rgba(223, 178, 108, 0.5); /* Subtle Glow */
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 30px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.scroll-down-icon {
+    font-size: 2.5rem;
+    color: var(--gold);
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-10px);}
+    60% {transform: translateY(-5px);}
+}
+
+/* --- 2. Parallax Break Sections (Images Only) --- */
+.parallax-break {
+    height: 80vh; /* Takes most of the screen */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* --- Image URLs from Unsplash (High Aesthetic) --- */
+.christian-bg-1 { background-image: url('https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=1600'); } /* Msalaba wakati wa sunrise */
+.christian-bg-2 { background-image: url('https://images.unsplash.com/photo-1476108621677-3c620901b5e7?q=80&w=1600'); } /* Mwanga/Cross Silhouette */
+.christian-bg-3 { background-image: url('https://images.unsplash.com/photo-1511216335778-7cb8f49fa7a3?q=80&w=1600'); } /* Biblia na Mwanga */
+.christian-bg-4 { background-image: url('https://images.unsplash.com/photo-1547633271-96541b52a781?q=80&w=1600'); } /* Kanisa la Kale la Kuvutia */
+.christian-bg-5 { background-image: url('https://images.unsplash.com/photo-1490730141103-6cac27aaab94?q=80&w=1600'); } /* Mandhari ya Tumaini/Sunset */
+.christian-bg-6 { background-image: url('https://images.unsplash.com/photo-1510360682-1c609c15d7f1?q=80&w=1600'); } /* Mwisho/Hope */
+
+/* --- 3. Text Section --- */
+.text-section {
+    padding: 100px 0;
+    text-align: center;
+}
+
+.container_narrow {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.chapter-num {
+    display: block;
+    color: var(--gold);
+    font-weight: 600;
+    font-size: 1rem;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.text-section h2 { font-size: 3.5rem; margin-bottom: 40px; color: #111; }
+.white-bg { background-color: var(--white); }
+.elegant-text p { font-size: 1.4rem; color: #555; font-weight: 300; }
+
+/* --- 4. Grid Section --- */
+.grid-section { padding: 100px 20px; background-color: #eee9dd;}
+.grid-section h2 {text-align: center; font-size: 3rem; margin-bottom: 50px;}
+
+.container_wide {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    height: 450px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: transform 0.4s;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.card:hover { transform: translateY(-10px); }
+
+/* Card Images */
+.card-img-1 { background-image: url('https://images.unsplash.com/photo-1507692049790-de58290a4334?q=80&w=800'); } /* Mandhari ya Kanisa */
+.card-img-2 { background-image: url('https://images.unsplash.com/photo-1504052313734-9ca11d2f2517?q=80&w=800'); } /* Biblia na Kahawa */
+.card-img-3 { background-image: url('https://images.unsplash.com/photo-1533267531-1e967b5e4c02?q=80&w=800'); } /* Mikono ikipokea */
+
+.card-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    padding: 40px 20px;
+    color: white;
+    text-align: center;
+}
+
+.card-info h3 { font-size: 2rem; color: var(--gold); margin-bottom: 10px; }
+.card-info p { font-size: 1rem; font-weight: 300; }
+
+/* --- 5. Quote Section --- */
+.quote-section {
+    padding: 150px 20px;
+    background: var(--dark);
+    color: var(--white);
+    text-align: center;
+}
+
+.quote-container { max-width: 900px; margin: 0 auto; }
+blockquote { font-size: 3rem; font-style: italic; color: #f0f0f0; margin-bottom: 30px;}
+cite { font-size: 1.3rem; color: var(--gold); font-weight: 500;}
+
+/* --- 6. Auto Sliding Gallery --- */
+.gallery-section { padding: 100px 0; }
+.gallery-section h2 {text-align: center; font-size: 3rem; margin-bottom: 50px;}
+.light-bg {background-color: var(--light-bg);}
+
+.sliding-gallery {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.gallery-slide {
+    flex: 0 0 90%; /* For mobile full-width items */
+    height: 400px;
+    scroll-snap-align: center;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+}
+
+/* Gallery Images (Aesthetic Christian) */
+.item1 { background-image: url('https://images.unsplash.com/photo-1463171379579-3fdfb86d6285?q=80&w=1000'); }
+.item2 { background-image: url('https://images.unsplash.com/photo-1542618991244-601e3b6d76e3?q=80&w=1000'); }
+.item3 { background-image: url('https://images.unsplash.com/photo-1510360682-1c609c15d7f1?q=80&w=1000'); }
+.item4 { background-image: url('https://images.unsplash.com/photo-1517013324623-6e3e50669d03?q=80&w=1000'); }
+
+/* --- 7. Footer Parallax --- */
+.parallax-footer {
+    height: 60vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: white;
+}
+
+.footer-overlay {
+    background: rgba(0,0,0,0.6);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-links { margin-bottom: 20px; }
+.footer-links a { color: var(--gold); text-decoration: none; margin: 0 10px; font-weight: 500;}
+.footer-overlay p { font-size: 0.9rem; font-weight: 300; color: rgba(255,255,255,0.7); }
+
+/* --- Media Queries for Mobile Responsive --- */
+@media (max-width: 768px) {
+    .sticky-nav { padding: 10px 20px; }
+    .hero-content h1 { font-size: 2.5rem; letter-spacing: 5px; }
+    .hero-content p { font-size: 1.1rem; }
+    .text-section h2 { font-size: 2.2rem; }
+    .elegant-text p { font-size: 1.1rem; }
+    blockquote { font-size: 1.8rem; }
+    .card { height: 350px; }
+    .sliding-gallery { padding: 0 10px; }
+    .parallax-break, .parallax-footer { height: 60vh; background-attachment: scroll; } /* Disable parallax on mobile for performance */
+}
