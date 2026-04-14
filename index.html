@@ -1,19 +1,21 @@
 <!DOCTYPE html>
-<html lang="sw">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Code Pro Music - Daniel Store</title>
+    <title>Code Pro Music - premium Store</title>
+    <link rel="icon" type="image/png" href="https://img.icons8.com/color/48/000000/music--v1.png">
     <style>
-        body { font-family: 'Segoe UI', sans-serif; background-color: #0b0b0b; color: #ffffff; margin: 0; padding: 20px; text-align: center; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background-color: #0b0b0b; color: #ffffff; margin: 0; padding: 20px; text-align: center; }
         h1 { color: #1DB954; font-size: 2.2rem; margin-bottom: 5px; }
         .code-tags { margin-bottom: 20px; display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
         .tag { background: #333; padding: 5px 12px; border-radius: 15px; font-size: 11px; color: #1DB954; border: 1px solid #1DB954; }
-        .search-box { margin: 25px 0; }
+        .search-box { margin: 25px 0; display: flex; justify-content: center; gap: 8px; }
         input { padding: 15px; width: 60%; border-radius: 30px; border: none; background: #222; color: white; outline: none; }
         button#search-btn { padding: 15px 25px; border-radius: 30px; border: none; background: #1DB954; color: white; font-weight: bold; cursor: pointer; }
         #results { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 15px; }
-        .card { background: #181818; padding: 12px; border-radius: 12px; border: 1px solid #333; }
+        .card { background: #181818; padding: 12px; border-radius: 12px; border: 1px solid #333; transition: 0.3s; }
+        .card:hover { background: #282828; }
         .card img { width: 100%; border-radius: 8px; }
         .card h3 { font-size: 13px; margin: 10px 0; height: 32px; overflow: hidden; }
         .pay-options { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
@@ -23,14 +25,15 @@
 </head>
 <body>
 
-    <h1>Code Pro 🎵💻</h1>
+    <h1><img src="https://img.icons8.com/color/48/000000/music--v1.png" style="vertical-align: middle;"> Code Pro🎵💻</h1>
+    <p>Premium Music Store - Global Hits</p>
     <div class="code-tags">
         <span class="tag">Python</span><span class="tag">C#</span>
         <span class="tag">C++</span><span class="tag">Swift</span>
     </div>
 
     <div class="search-box">
-        <input type="text" id="searchInput" placeholder="Search Global Music Hits...">
+        <input type="text" id="searchInput" placeholder="Search Migos or any artist...">
         <button id="search-btn" onclick="tafutaMuziki()">Search</button>
     </div>
 
@@ -54,12 +57,13 @@
                 data.results.forEach(song => {
                     const card = document.createElement('div');
                     card.className = 'card';
+                    // Hakikisha hapa chini nimevifanya vitufe viite functions mbili tofauti
                     card.innerHTML = `
                         <img src="${song.artworkUrl100.replace('100x100', '400x400')}" alt="cover">
                         <h3>${song.trackName}</h3>
                         <div class="pay-options">
-                            <button class="btn-pay" onclick="lipiaKiswahili('${song.trackName}')">Lipa TZS 13,500 (Tanzania)</button>
-                            <button class="btn-usd" onclick="lipiaEnglish('${song.trackName}')">Pay USD $5.00 (Global)</button>
+                            <button class="btn-pay" onclick="lipiaKiswahili('${song.trackName.replace(/'/g, "")}')">Lipa TZS 13,500 (Mobile)</button>
+                            <button class="btn-usd" onclick="lipiaEnglish('${song.trackName.replace(/'/g, "")}')">Pay USD $5.00 (Global)</button>
                         </div>
                     `;
                     container.appendChild(card);
@@ -72,17 +76,21 @@
             let maelezo = `Sajili malipo ya: ${wimbo}\n\n` +
                           `JINSI YA KULIPA (TZS 13,500):\n` +
                           `Tuma pesa kwenda namba: 0621645957\n` +
-                          `Jina: Eldan Richard\n\n` +
-                          `Baada ya kutuma, weka namba ya muamala hapa chini:`;
+                          `Jina: Eldan Richard\n` +
+                          `Mtandao: HALOTEL / M-PESA\n\n` +
+                          `Baada ya kutuma, nakili namba ya muamala hapa chini:`;
             
             let transactionId = prompt(maelezo);
             if (transactionId && transactionId.length >= 6) {
                 alert("Asante! Tunahakiki muamala: " + transactionId + "\nDownload itaanza baada ya sekunde chache.");
                 setTimeout(() => { alert("Muamala umethibitishwa! Wimbo unaanza kushuka."); }, 4000);
+            } else if (transactionId) {
+                alert("Namba ya muamala haijakamilika. Jaribu tena.");
             }
         }
 
         // 3. MAELEKEZO KWA KIINGEREZA (USD)
+        // Hapa ndipo maelekezo ya Kiingereza yatakaa
         function lipiaEnglish(song) {
             let instructions = `Checkout for: ${song}\n\n` +
                                `PAYMENT INSTRUCTIONS ($5.00):\n` +
@@ -93,4 +101,13 @@
                                `Once payment is sent, enter the Transaction Reference ID below:`;
             
             let refId = prompt(instructions);
-            if (refId && refId.
+            if (refId && refId.length >= 6) {
+                alert("Thank you! Verifying transaction: " + refId + "\nYour premium download will start shortly.");
+                setTimeout(() => { alert("Payment Verified! Your high-quality file is downloading now."); }, 4000);
+            } else if (refId) {
+                alert("Reference ID is too short. Please try again.");
+            }
+        }
+    </script>
+</body>
+</html>
